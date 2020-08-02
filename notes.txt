@@ -1,0 +1,250 @@
+Block elements: 
+	Tipos e tamanhos de letras default:
+		<h1>
+		<h2>
+		<h3>
+		<h4>
+		<h5>
+		<h6>
+
+	Organização: 
+		<div> - divisão
+		<section> - secção
+		<p> - paragrafo
+
+Inline elements: 
+	<i> - texto em itálico
+	<em> - Texto enfatizado, identico ao itálico
+	<strong> - Texto strong, identico ao negrito
+	<b> - Texto a negrito
+
+Break: 
+	<br> - É um elemento único, sem tag de fecho. 
+
+
+NOTA: Inline elements não têm um espaçamento para baixo em relação uns aos outros. por exemplo: <i>, <em>, <strong> e <b>. Block elements dão um "paragrafo" no fim do elemento. 
+
+
+
+Links: 
+	<a> - link para fora da nossa página.
+	Internal link: 
+		href - Correponde à localização de uma página externa. 
+	External link: 
+		href - Correponde à localização de uma página dentro do nosso projecto. 
+
+
+Navegador
+	<nav> - TAG para o contentor do tipo navegador. 
+	Normalmente contém uma lista dentro da TAG nav. 
+	<li> - item da lista
+
+	Ordered list: 
+		<ol> - Lista de items numerada. 
+
+	Unorded list:
+		<ul> - Lista de items com pontos.
+
+	
+Imagens: 
+	TAG única
+	Necessário adicionar a fonte, src. 
+	Necessário adicionar a referencia para a imagem. Exemplo: gato. 
+
+	Imagens dentro do projecto: 
+		href = localização da imagem no projecto
+
+	Imagens online:
+		href = URL da imagem
+
+	Alterar tamanho das imagens: 
+		Usar TAG height e weight
+		NOTA: se apenas colocar o height a largura da imagem é ajustada proporcionalmente. 
+
+
+Linkar imagens: 
+	Colocar TAG <img> dentro da TAG <a>. 
+	Exemplo: <a href="https://petfinder.com"><img src="kitten2.jpeg" alt="kitten" height="200"></a>
+
+		
+Linkar CSS num documento HTML: 
+	usar TAG <link> dentro da TAG <head>
+	Obriga à especificação do rel e do href.
+	<rel> - tipo de ficheiro
+	<href> - localização do ficheiro
+	
+	Exemplo: <link rel="stylesheet" href="style.css">
+
+
+
+
+CSS
+
+Tagging:
+	Indicar o elemento para o qual se quer alterar o estilo através no nome do elemento, da classe ou do id. 
+	NOTA: todos os elementos com a TAG alterada na CSS vão também alterar o seu estilo. 
+
+	Exemplo Nome: h1 {}
+	Exemplo Classe: .title {}
+	Exemplo id: #name {}
+
+Box: 
+	Propriedade border: 
+		Tem 3 valores: espesura, tipo de border e cor.
+		Tipo de border: solido, picotado ou tracejado (solid, dashed ou dotted). 
+
+	Por defeito o elemento div tem a largura para 100%, ou seja, a box vai ocupar toda a largura da página mesmo que não tenha informação escrita. 
+	
+	Padding: 
+		Espaço dentro da caixa.
+
+	Margin: 
+		Espaço fora da caixa. 
+		Propriedade margin define o espaçamento para fora da caixa em todas as direções. 
+		Para especificar uma ou mais direções usarmos as propriedades margin-top, margin-bottom, margin-left ou margin-right. Mas também podemos recorrer aos argumentos da propriedade margin. Exemplo: margin: 50px 5px 25px 0px; - (top, right, bottom, left)
+
+
+Display: 
+	Block: Elementos tornam-se blocos ocupando toda a largura da página. 
+	Inline: Elementos com a altura e largura suficiente para o texto. Ignora as propriedades height e width.
+	Inline-Block: Conjuga as propriedades block e inline. Elementos com altura suficiente para o texto respeitando as propriedades height e width. 
+
+Center text: 
+	Propriedade text-align: center. 
+
+Remover underline por baixo dos links: 
+	Propriedade text-decoration-line: none.  
+
+
+NOTA: se combinarmos 2 elementos estamos a ser mais espeficicos aquando as alterações. Por exemplo, se centrar o texto de todos os elementos ul todas as unordered lists vão ficar com o texto centrado. Mas se fizer,
+nav ul {
+	text-align: center;
+}
+apenas a unordered list dentro do nav vai ficar com o texto centrado. 
+
+Eliminar pontos das listas:
+	Propriedade list-style: none;
+
+Aminações:
+	@keyframes <nome da animação> {}
+
+
+	- Fade Example:
+		@keyframes fadeMe {
+		    0% {opacity: 1;}
+		    100% {opacity: 0;}
+		}
+
+		#box1 {
+		    animation-name: fadeMe;		
+		    animation-duration: 4s;
+		    animation-iteration-count: infinite;
+		    animation-timing-function: linear;
+		}
+
+
+	- Rotation Example: 
+		@keyframes rotation {
+		    0% {transform: rotate(90deg);}
+		    50% {transform: rotate(180deg);}
+		    100% {transform: rotate(360deg);}
+		}
+
+		#box2 {
+		    animation-name: rotation;
+		    animation-duration: 4s;
+		    animation-iteration-count: infinite;
+
+
+
+		    animation-timing-function: ease-in-out;
+		    border-radius: 10%;
+		    background-image: radial-gradient(circle, purple, orange, yellow, pink, purple);
+		}
+
+
+	- getBigger Example:
+		
+		@keyframes getBigger {
+		    0% {transform: scale(1);}
+		    50% {transform: scale(2);}
+		    100% {transform: scale(0.5);}
+		}
+
+		#box3 {
+		    animation: getBigger infinite 8s ease-in;
+		    border-radius: 50%;
+		    background-color: orange;
+		}
+		
+
+	- changeColors Example: 
+		@keyframes changeColors {
+		    0% {background-color: gray;}
+		    25% {background-color: purple;}
+		    50% {background-color: yellow;}
+		    75% {background-color: pink;}
+		    100% {background-color: gray;}
+		}
+
+		#box4 {
+		    animation: changeColors 3s 2s forwards;
+		}
+
+
+	- moveBox Example: 
+		@keyframes moveBox {
+		    0% {left: 0px; top: 0px;}
+		    25% {left: 100px; top: 100px;}
+		    50% {left: 100px; top: 200px;}
+		    75% {left: 0px; top: 200px;}
+		    100% {left: 0px; top: 0px;}
+		}
+
+		#box5 {
+		    position: relative;
+		    background: red;
+		    animation: moveBox 5s infinite;
+		}
+
+
+Cores: 
+	Gradiente Linear: background-image: linear-gradient(to bottom, blue, green, purple);
+	Gradiente Radial: background-image: radial-gradient(blue, green, purple);
+
+
+Formulários: 
+	Para inserir um formulário usamos a TAG <form>. 
+	
+	Opções de introdução dentro do formulário: 
+	- Caixa de texto: <input type="text" name="name" placeholder="Full Name" required>
+	- Àreas de texto: <textarea name="message" placeholder="Your Message"></textarea>
+	- Butões: <button type="submit">Submit</button>
+
+
+Framework Materialize
+	Forma de adicionar componentes ao site. Funciona na base do copy-paste.
+
+
+Git Hub
+	Instalação: 
+		Criar conta no site https://github.com/. 
+		Sem PC Windows fazer download do Git para Windows através do site https://gitforwindows.org/. 
+		No terminal, configurar a conta Git através dos comandos:
+			- git config --global user.name "AnaSofOliveira"
+			- git config --global user.email "a39275@alunos.isel.pt"
+		Validar se está devidamente configurado através do comando: 
+			- git config --global --list     
+				user.name=AnaSofOliveira
+				user.email=a39275@alunos.isel.pt
+
+	Adicionar um repositório ao Git Hub: 
+		Através da linha de comandos usar os seguintes comandos para cada projecto a adicionar: 
+			- git init
+			- git add . (. indica que queremos adicionar todos os ficheiros)
+			- git status (para verificar se todos os ficheiros foram adicionados)
+			- git commit -m "first commit" (entre "" convém que se descreva qual foi a alteração feita. NOTA: como foi a primeira vez que adicionámos algo ao repositório indicámos que foi um "first commit")
+			- git remote add origin https://github.com/AnaSofOliveira/Demonstration-Repo.git (Associar os ficheiros ao repositório criado para o efeito no Git Hub)
+			- git push -u origin master (Cria uma cópia mestre no Git Hub)
+			- Realizar login através do pop-up para o efeito. 
+
